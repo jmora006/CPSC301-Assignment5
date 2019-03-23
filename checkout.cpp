@@ -1,5 +1,5 @@
-// Name
-// Section #
+// Jason Mora-Mendoza
+// Section 1
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -22,12 +22,30 @@ void printMenu() {
     cout << "Please enter a choice: ";
 }
 
-/* You are not obligated to use these function declarations - they're just given as examples
-void readBooks(vector<Book *> & myBooks) {
-    return;
+void readBooks(vector<Book *> & myBooks)
+{
+	int id;
+	string title, author, category, discard;
+	ifstream file("books.txt");
+	
+	if(file.is_open())
+	{
+		while(file>>id)
+		{
+			cout<<id<<endl;
+			getline(file, discard);
+			getline(file, title);
+			cout<<title<<endl;
+			getline(file, author);
+			cout<<author<<endl;
+			getline(file, category);
+			cout<<category<<endl<<endl;
+		}
+	}
+	file.close();
 }
 
-int readPersons(vector<Person *> & myCardholders) {
+/*int readPersons(vector<Person *> & myCardholders) {
     return 0;
 }
 
@@ -41,15 +59,16 @@ void openCard(vector<Person *> & myCardholders, int nextID) {
 
 Book * searchBook(vector<Book *> myBooks, int id) {
     return nullptr;
-}
-*/
+}*/
 
 int main()
 {
     vector<Book *> books;
     vector<Person *> cardholders;
     
-    int choice;
+    readBooks(books);
+    
+    /*int choice;
     do
     {
         // If you use cin anywhere, don't forget that you have to handle the <ENTER> key that 
@@ -95,6 +114,8 @@ int main()
                 break;
         }
         cout << endl;
-   } while(choice != 8);
-      return 0;
+   } while(choice != 8);*/
+   
+	cin.get();
+    return 0;
 }
