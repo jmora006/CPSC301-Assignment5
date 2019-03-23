@@ -62,13 +62,23 @@ int readPersons(vector<Person *> & myCardholders)
     file.close();
 }
 
-/*void readRentals(vector<Book *> & myBooks, vector<Person *> myCardholders)
+void readRentals(vector<Book *> & myBooks, vector<Person *> myCardholders)
 {
-    return;
+	int id, cardNo;
+	ifstream file("rentals.txt");
+	
+	if(file.is_open())
+	{
+		while(file>>id>>cardNo)
+		{
+			cout<<id<<" "<<cardNo<<endl;
+		}
+	}
+	file.close();
 }
 
-void openCard(vector<Person *> & myCardholders, int nextID)
-{}
+/*void openCard(vector<Person *> & myCardholders, int nextID)
+{
     return;
 }
 
@@ -86,6 +96,8 @@ int main()
     readBooks(books);
     cout<<endl<<"---READING 'persons.txt'---"<<endl<<endl;
     readPersons(cardholders);
+    cout<<endl<<"---READING 'rentals.txt'---"<<endl<<endl;
+    readRentals(books, cardholders);
     
     /*int choice;
     do
