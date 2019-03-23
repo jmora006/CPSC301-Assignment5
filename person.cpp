@@ -5,7 +5,7 @@ Person::Person(int cardNo, bool act, string fName, string lName)
 	cardID = cardNo;
 	setActive(act);
 	firstName = fName;
-    lastName = lName;
+	lastName = lName;
 }
 
 string Person::getFirstName()
@@ -20,7 +20,7 @@ string Person::getLastName()
 
 int Person::getId()
 {
-    retrun cardID;
+    return cardID;
 }
 
 void Person::setActive(bool act)
