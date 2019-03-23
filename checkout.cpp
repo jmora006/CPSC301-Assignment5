@@ -45,19 +45,35 @@ void readBooks(vector<Book *> & myBooks)
 	file.close();
 }
 
-/*int readPersons(vector<Person *> & myCardholders) {
-    return 0;
+int readPersons(vector<Person *> & myCardholders)
+{
+    int cardNo;
+    bool act;
+    string firstName, lastName;
+    ifstream file("persons.txt");
+    
+    if(file.is_open())
+    {
+    	while(file>>cardNo>>act>>firstName>>lastName)
+    	{
+    		cout<<cardNo<<" "<<act<<" "<<firstName<<" "<<lastName<<endl;
+    	}
+    }
+    file.close();
 }
 
-void readRentals(vector<Book *> & myBooks, vector<Person *> myCardholders) {
+/*void readRentals(vector<Book *> & myBooks, vector<Person *> myCardholders)
+{
     return;
 }
 
-void openCard(vector<Person *> & myCardholders, int nextID) {
+void openCard(vector<Person *> & myCardholders, int nextID)
+{}
     return;
 }
 
-Book * searchBook(vector<Book *> myBooks, int id) {
+Book * searchBook(vector<Book *> myBooks, int id)
+{
     return nullptr;
 }*/
 
@@ -66,7 +82,10 @@ int main()
     vector<Book *> books;
     vector<Person *> cardholders;
     
+    cout<<"---READING 'books.txt'---"<<endl<<endl;
     readBooks(books);
+    cout<<endl<<"---READING 'persons.txt'---"<<endl<<endl;
+    readPersons(cardholders);
     
     /*int choice;
     do
@@ -116,6 +135,6 @@ int main()
         cout << endl;
    } while(choice != 8);*/
    
-	cin.get();
-    return 0;
+   cin.get();
+   return 0;
 }
